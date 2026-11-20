@@ -9,12 +9,13 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2315171a'/%3E%3Crect x='8' y='8' width='16' height='16' fill='%23c8dfa6'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__ok)document.documentElement.className=''},3000)</script>
 </head>
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<div class="sipario" aria-hidden="true"><span></span><span></span><span></span></div>
 
 <header class="bar" data-ink="blue">
   <a class="mark" href="#top" aria-label="De Fazio, zum Seitenanfang">De Fazio</a>
@@ -33,9 +34,21 @@
 
 <section class="hero" id="top" data-ink="blue">
   <div class="hero-low" data-ink="white"></div>
-  <h1 class="hl"><span class="hl-up">Wir drucken<br><span class="slot"><img src="assets/img/f2_1.jpg" alt="Eisbecher mit Melone, Erdbeeren und Kiwi aus einer De-Fazio-Eiskarte" width="980" height="1400"></span> Appetit.</span><span class="hl-low" aria-hidden="true">Wir drucken<br><span class="slot"><img src="assets/img/f2_1.jpg" alt="" width="980" height="1400"></span> Appetit.</span></h1>
+  <h1 class="hl"><span class="hl-up"><span class="kw">W</span>ir drucken<br><span class="slot"><img src="assets/img/f2_1.jpg" alt="Eisbecher mit Melone, Erdbeeren und Kiwi aus einer De-Fazio-Eiskarte" width="980" height="1400"></span> Appetit.</span><span class="hl-low" aria-hidden="true"><span class="kw">W</span>ir drucken<br><span class="slot"><img src="assets/img/f2_1.jpg" alt="" width="980" height="1400"></span> Appetit.</span></h1>
   <p class="hero-sub">Eiskarten, Beach Flags, Kundenstopper und Preistafeln für Eiscafés und Gastronomie. Gestaltet und fotografiert von Renato De Fazio in Solingen.</p>
+  <div class="fan">
+    <img class="fan-l" src="assets/img/f3_1.jpg" alt="Eiskarte der Gelateria La Fenice" width="700" height="1000">
+    <img class="fan-r" src="assets/img/f2_4.jpg" alt="Kartenseite mit Fruchtbecher und Erdbeerbecher" width="980" height="1400">
+    <img class="fan-m" src="assets/img/f1_1.jpg" alt="Eiskarte des Eiscafés Mona Lisa" width="700" height="1000">
+  </div>
 </section>
+
+<div class="flavours" data-ink="accent" aria-hidden="true">
+  <div class="flavours-run">
+    <span>Stracciatella<i></i>Pistacchio<i></i>Amarena<i></i>Nocciola<i></i>Fragola<i></i>Limone<i></i>Fior di latte<i></i>Bacio<i></i></span>
+    <span>Stracciatella<i></i>Pistacchio<i></i>Amarena<i></i>Nocciola<i></i>Fragola<i></i>Limone<i></i>Fior di latte<i></i>Bacio<i></i></span>
+  </div>
+</div>
 
 <section class="zoom" data-ink="white" aria-labelledby="zoom-h">
   <div class="zoom-stage" data-stage="1">
@@ -187,17 +200,34 @@
   </div>
 </section>
 
-<section class="pick" id="bildarchiv" data-ink="white" aria-labelledby="pick-h">
-  <h2 class="mega" id="pick-h" data-rise>Qual der<br>Wahl.</h2>
-  <div class="prints" aria-hidden="false">
-    <img class="print p1" src="assets/img/f1_3.jpg" alt="Kartenseite mit Kinderbechern aus dem Bildarchiv" width="700" height="1000" loading="lazy">
-    <img class="print p2" src="assets/img/f1_4.jpg" alt="Kartenseite mit Eisgetränken aus dem Bildarchiv" width="700" height="1000" loading="lazy">
-    <img class="print p3" src="assets/img/archiv.png" alt="Auswahl aus dem Fotoarchiv: Eisbecher, Pasta, Salate und Kaffee" width="898" height="898" loading="lazy">
+<section class="pick" id="bildarchiv" data-ink="blue" aria-labelledby="pick-h">
+  <div class="pick-top">
+    <h2 class="mega" id="pick-h" data-rise>Qual der<br><span class="kw">W</span>ahl.</h2>
+    <div class="pick-side">
+      <p data-rise>Das ist unser Bildarchiv: fertig fotografierte Eisbecher, Getränke und Kinderbecher für Ihre Karte. Es wird ständig aktualisiert und erweitert, damit Sie immer auf dem neuesten Stand sind.</p>
+      <a class="btn btn-big" href="https://eisbecher.de-fazio.de/" data-rise>Ganzes Bildarchiv öffnen</a>
+    </div>
   </div>
-  <p class="pick-text" data-rise>In unserem Fotoarchiv finden Sie eine große Auswahl an Fotos: Eisbecher, Getränke, Frühstück, Snacks. Es wird ständig aktualisiert und erweitert, damit Ihre Karte immer auf dem neuesten Stand ist.</p>
+  <ul class="shelf">
+    <li data-rise><a href="https://eisbecher.de-fazio.de/Eisbecher/index.html">
+      <img class="cut-w" src="assets/archiv/italiabecher-1.jpg" alt="Italiabecher im hohen Glas mit Früchten und Waffel" width="340" height="800" loading="lazy">
+      <strong>Eisbecher</strong><span>47 Sorten, von Affogato bis Zitrone</span></a></li>
+    <li data-rise><a href="https://eisbecher.de-fazio.de/Spaghetti-Eis/index.html">
+      <img src="assets/archiv/spagh-2.png" alt="Spaghetti-Eis mit Schokolade, Banane und Waffelherz" width="995" height="800" loading="lazy">
+      <strong>Spaghetti-Eis</strong><span>klassisch, mit Früchten, für Kinder</span></a></li>
+    <li data-rise><a href="https://eisbecher.de-fazio.de/Getr%C3%A4nke/index.html">
+      <img src="assets/archiv/drink-2.png" alt="Roter Cocktail im hohen Glas mit Orangenscheibe" width="407" height="800" loading="lazy">
+      <strong>Getränke</strong><span>mit und ohne Alkohol</span></a></li>
+    <li data-rise><a href="https://eisbecher.de-fazio.de/Kinder-Becher/index.html">
+      <img src="assets/archiv/kinder-1.png" alt="Kinderbecher als Biene mit Waffelflügeln" width="858" height="800" loading="lazy">
+      <strong>Kinder-Becher</strong><span>Biene, Clown, Maus und mehr</span></a></li>
+    <li data-rise><a href="https://eisbecher.de-fazio.de/Joghurt-Becher/index.html">
+      <img src="assets/archiv/joghu-1.png" alt="Joghurtbecher mit Kirschen im Glaskelch" width="519" height="800" loading="lazy">
+      <strong>Joghurt-Becher</strong><span>mit Müsli und Früchten</span></a></li>
+  </ul>
 </section>
 
-<section class="deal" id="haendler" data-ink="blue" aria-label="Händler gesucht">
+<section class="deal" id="haendler" data-ink="white" aria-label="Händler gesucht">
   <ul class="facts" data-rise>
     <li>Solingen, Neuenkamper Str. 93</li>
     <li>Hotline Montag bis Freitag, 8 bis 17 Uhr</li>
