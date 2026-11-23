@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_werkzeug/
+
+Sitemap: https://www.de-fazio.de/sitemap.xml

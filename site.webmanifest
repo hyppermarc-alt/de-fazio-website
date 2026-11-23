@@ -1,0 +1,15 @@
+{
+  "name": "De Fazio Grafik- und Photodesign",
+  "short_name": "De Fazio",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

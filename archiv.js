@@ -7,21 +7,6 @@
     return n;
   };
 
-  // Kopfzeile: Menü auf dem Telefon, beim Herunterscrollen ausblenden
-  const bar = $('.bar'), mb = $('.menu-btn');
-  const menu = open => {
-    bar.classList.toggle('open', open);
-    mb.setAttribute('aria-expanded', open);
-    mb.textContent = open ? 'Schließen' : 'Menü';
-  };
-  mb.addEventListener('click', () => menu(!bar.classList.contains('open')));
-  let lastY = 0;
-  addEventListener('scroll', () => {
-    const y = scrollY;
-    if (!bar.classList.contains('open')) bar.classList.toggle('away', y > lastY && y > 200);
-    lastY = y;
-  }, { passive: true });
-
   const tabsBox = $('#arch-tabs'), sortsBox = $('#arch-sorts'), select = $('#arch-select');
   const shots = $('#arch-shots'), now = $('#arch-now');
 
