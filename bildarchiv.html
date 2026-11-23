@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bildarchiv · De Fazio Grafik- und Photodesign</title>
+<meta name="description" content="Das Bildarchiv von De Fazio: fertig fotografierte Eisbecher, Spaghetti-Eis, Getränke, Kinder-Becher und Joghurt-Becher für Ihre Eiskarte.">
+<meta name="theme-color" content="#15171a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2315171a'/%3E%3Crect x='8' y='8' width='16' height='16' fill='%23c8dfa6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="archiv.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="arch-page">
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="bar" data-ink="blue">
+  <a class="mark" href="index.html" aria-label="De Fazio, zur Startseite">De Fazio</a>
+  <nav class="links" id="nav" aria-label="Hauptnavigation">
+    <a href="index.html#karten">Eiskarten</a>
+    <a href="index.html#preise">Preise</a>
+    <a href="index.html#werbemittel">Werbemittel</a>
+    <a href="bildarchiv.html" aria-current="page">Bildarchiv</a>
+    <a href="index.html#haendler">Händler</a>
+  </nav>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menü</button>
+  <a class="btn" href="tel:+49212590960">0212 590960</a>
+</header>
+
+<main id="inhalt">
+<section class="arch" aria-labelledby="arch-h">
+  <div class="arch-top">
+    <h1 class="display" id="arch-h">Bildarchiv</h1>
+    <p class="arch-lead"><span id="arch-count">Über 1.600</span> fertig fotografierte Becher und Getränke für Ihre Karte. Wählen Sie eine Rubrik und eine Sorte, tippen Sie ein Foto an und nennen Sie uns am Telefon einfach den Bildnamen.</p>
+  </div>
+
+  <div class="tabs" id="arch-tabs" role="tablist" aria-label="Rubriken"></div>
+
+  <div class="arch-body">
+    <div class="sorts">
+      <label class="sorts-label" for="arch-select">Sorte</label>
+      <select id="arch-select"></select>
+      <ul id="arch-sorts"></ul>
+    </div>
+    <div class="arch-main">
+      <p class="arch-now" id="arch-now" aria-live="polite"></p>
+      <ul class="shots" id="arch-shots"></ul>
+      <noscript><p>Das Bildarchiv braucht JavaScript. Sie finden alle Fotos auch im <a href="https://eisbecher.de-fazio.de/">bisherigen Album</a>.</p></noscript>
+    </div>
+  </div>
+</section>
+</main>
+
+<dialog class="view" id="view" aria-labelledby="view-name">
+  <div class="view-bar">
+    <p class="view-meta" id="view-meta"></p>
+    <button class="chip" type="button" id="view-close">Schließen</button>
+  </div>
+  <div class="view-stage"><img id="view-img" alt=""></div>
+  <div class="view-foot">
+    <button class="chip" type="button" id="view-prev">Zurück</button>
+    <p class="view-name">Bildname: <strong id="view-name"></strong></p>
+    <button class="chip" type="button" id="view-next">Weiter</button>
+  </div>
+</dialog>
+
+<footer class="foot foot-short">
+  <div class="foot-top">
+    <p>De Fazio<br>Grafik- und Photodesign</p>
+    <p>Inhaber Renato De Fazio<br>Neuenkamper Str. 93, 42657 Solingen</p>
+    <p>Hotline Montag bis Freitag<br>8:00 bis 17:00 Uhr</p>
+    <a href="#inhalt">Nach oben</a>
+  </div>
+  <a class="mega foot-tel" href="tel:+49212590960">0212 590960</a>
+  <div class="foot-meta">
+    <p><a href="https://www.de-fazio.de/rechtliches.html">Impressum und Datenschutz</a></p>
+    <p>Alle Fotos © De Fazio Grafik- und Photodesign</p>
+    <p>Solingen 2026</p>
+  </div>
+</footer>
+
+<script src="archiv.js" defer></script>
+</body>
+</html>
