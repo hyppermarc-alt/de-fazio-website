@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 
 // Die Adresse, unter der die Seite endgültig erreichbar ist (für Canonical, Sitemap, Social-Media-Vorschau).
 const BASE = 'https://www.de-fazio.de/';
-const VERSION = '20261123c'; // bei jeder Änderung an CSS/JS hochzählen, damit Browser neu laden
+const VERSION = '20261124b'; // bei jeder Änderung an CSS/JS hochzählen, damit Browser neu laden
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -250,9 +250,13 @@ pages.push({
   body: `<section aria-labelledby="arch-h">
   <div class="arch-top">
     <h1 id="arch-h">Bildarchiv – „Sie haben die Qual der Wahl“</h1>
-    <p>In unserem Fotoarchiv finden Sie <span id="arch-count">über 1.600</span> Fotos von Eisbechern, Spaghetti-Eis, Kinder- und Joghurtbechern und Getränken. Das Fotoarchiv wird ständig aktualisiert und erweitert, damit unsere Kunden immer auf dem neuesten Stand sind. Wählen Sie Ihre Fotos aus und nennen Sie uns einfach den Bildnamen: Hotline <a href="tel:${FIRMA.tel}">${FIRMA.telAnzeige}</a>.</p>
+    <p>In unserem Fotoarchiv finden Sie <span id="arch-count">über 1.600</span> Fotos von Eisbechern, Spaghetti-Eis, Kinder- und Joghurtbechern und Getränken. Das Fotoarchiv wird ständig aktualisiert und erweitert, damit unsere Kunden immer auf dem neuesten Stand sind.</p>
+    <p class="arch-how">So geht’s: Tippen Sie bei den gewünschten Fotos auf <strong>„Auswählen“</strong>. Alles landet im <strong>Bestellkorb</strong>, und von dort schicken Sie uns Ihre Auswahl mit einem Klick per E-Mail. Aufschreiben müssen Sie nichts. Fragen? Hotline <a href="tel:${FIRMA.tel}">${FIRMA.telAnzeige}</a>.</p>
   </div>
-  <div class="arch-tabs" id="arch-tabs" role="tablist" aria-label="Rubriken"></div>
+  <div class="arch-toolbar">
+    <div class="arch-tabs" id="arch-tabs" role="tablist" aria-label="Rubriken"></div>
+    <button class="korb-btn" type="button" id="korb-open" aria-haspopup="dialog">Bestellkorb (0)</button>
+  </div>
   <div class="arch-body">
     <div class="sorts">
       <label class="sorts-label" for="arch-select">Sorte</label>
@@ -266,10 +270,48 @@ pages.push({
     </div>
   </div>
 </section>
+
+<div class="korb-bar" id="korb-bar" hidden>
+  <p><strong id="korb-bar-count">0 Fotos</strong> im Bestellkorb <span class="korb-msg" id="korb-bar-msg" aria-live="polite"></span></p>
+  <button class="chip" type="button" id="korb-bar-open"><span class="d">Bestellkorb ansehen</span><span class="m">Ansehen</span> &amp; senden</button>
+</div>
+
 <dialog class="view" id="view" aria-labelledby="view-name">
   <div class="view-bar"><p class="view-meta" id="view-meta"></p><button class="chip" type="button" id="view-close">Schließen</button></div>
   <div class="view-stage"><img id="view-img" alt=""></div>
-  <div class="view-foot"><button class="chip" type="button" id="view-prev">Zurück</button><p class="view-name">Bildname: <strong id="view-name"></strong></p><button class="chip" type="button" id="view-next">Weiter</button></div>
+  <div class="view-foot">
+    <button class="chip" type="button" id="view-prev">Zurück</button>
+    <div class="view-mid"><p class="view-name">Bildname: <strong id="view-name"></strong></p><button class="pick big" type="button" id="view-pick" aria-pressed="false">In den Bestellkorb</button></div>
+    <button class="chip" type="button" id="view-next">Weiter</button>
+  </div>
+</dialog>
+
+<dialog class="korb" id="korb" aria-labelledby="korb-h">
+  <div class="korb-head"><h2 id="korb-h">Ihr Bestellkorb</h2><button class="chip" type="button" id="korb-close">Schließen</button></div>
+  <div class="korb-shared" id="korb-shared" hidden>
+    <p>Diese Bildauswahl wurde per Link geteilt.</p>
+    <div class="korb-actions"><button class="chip" type="button" id="korb-take">In meinen Bestellkorb übernehmen</button><button class="chip grey" type="button" id="korb-print-shared">Drucken / als PDF</button></div>
+  </div>
+  <p class="korb-empty" id="korb-empty">Noch keine Fotos ausgewählt. Tippen Sie im Archiv bei einem Foto auf „Auswählen“.</p>
+  <ol class="korb-list" id="korb-list"></ol>
+  <form class="korb-form" id="korb-form">
+    <h3>Ihre Angaben</h3>
+    <p class="korb-note">Damit Herr De Fazio Ihnen antworten kann. Die Angaben kommen nur in Ihre E-Mail und werden nirgends gespeichert.</p>
+    <div class="korb-fields">
+      <label>Ihr Name<input name="name" autocomplete="name"></label>
+      <label>Eiscafé / Firma<input name="firma" autocomplete="organization"></label>
+      <label>Telefon<input name="tel" type="tel" autocomplete="tel"></label>
+      <label>E-Mail<input name="mail" type="email" autocomplete="email"></label>
+      <label class="wide">Nachricht (optional)<textarea name="text" rows="3" placeholder="z. B. für welche Karte, wie viele Seiten, Wunschtermin"></textarea></label>
+    </div>
+    <div class="korb-actions">
+      <button class="chip big" type="submit">Auswahl per E-Mail senden</button>
+      <button class="chip grey" type="button" id="korb-print">Drucken / als PDF</button>
+      <button class="chip grey" type="button" id="korb-copy">Liste kopieren</button>
+      <button class="chip grey" type="button" id="korb-clear">Korb leeren</button>
+    </div>
+    <p class="korb-hint" id="korb-hint" aria-live="polite"></p>
+  </form>
 </dialog>`,
 });
 
